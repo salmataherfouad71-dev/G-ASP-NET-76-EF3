@@ -45,6 +45,49 @@ namespace Assignment._18.Migrations
                     b.HasIndex("ParentId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Programming"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Back-End",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Front-End",
+                            ParentId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "ASP.NET",
+                            ParentId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Node.js",
+                            ParentId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "React",
+                            ParentId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Angular",
+                            ParentId = 3
+                        });
                 });
 
             modelBuilder.Entity("Assignment._18.Models.Course", b =>
@@ -88,6 +131,68 @@ namespace Assignment._18.Migrations
                     b.HasIndex("InstructorId");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 4,
+                            Flag = true,
+                            InstructorId = 1,
+                            Level = "Beginner",
+                            Price = 8000m,
+                            Title = "ASP-NET-G01"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 4,
+                            Flag = false,
+                            InstructorId = 1,
+                            Level = "Intermediate",
+                            Price = 8000m,
+                            Title = "ASP-NET-G02"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 5,
+                            Flag = true,
+                            InstructorId = 2,
+                            Level = "Beginner",
+                            Price = 8000m,
+                            Title = "NODE-JS-G01"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 5,
+                            Flag = false,
+                            InstructorId = 2,
+                            Level = "Intermediate",
+                            Price = 8000m,
+                            Title = "NODE-JS-G02"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 6,
+                            Flag = true,
+                            InstructorId = 3,
+                            Level = "Beginner",
+                            Price = 8000m,
+                            Title = "REACT-G01"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 7,
+                            Flag = true,
+                            InstructorId = 3,
+                            Level = "Advanced",
+                            Price = 8000m,
+                            Title = "ANGULAR-G01"
+                        });
                 });
 
             modelBuilder.Entity("Assignment._18.Models.Enrollment", b =>
@@ -99,7 +204,9 @@ namespace Assignment._18.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EnrollmentDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<decimal?>("FinalGrade")
                         .HasColumnType("decimal(10,2)");
@@ -145,6 +252,29 @@ namespace Assignment._18.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Instructors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EmailAddress = "Ahmad77@gmail.com",
+                            FullName = "Ahmad Gamal",
+                            JoinedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EmailAddress = "Salma66@gmail.com",
+                            FullName = "Salma Mostafa",
+                            JoinedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EmailAddress = "Omar98@gmail.com",
+                            FullName = "Omar Waleed",
+                            JoinedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Assignment._18.Models.Student", b =>

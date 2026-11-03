@@ -20,7 +20,7 @@ namespace Assignment._18.Models
             set
             {
                 if(Flag==true)
-                    publishedDate = value;
+                    publishedDate = DateTime.Now;
             }
             get { return publishedDate; }
         }

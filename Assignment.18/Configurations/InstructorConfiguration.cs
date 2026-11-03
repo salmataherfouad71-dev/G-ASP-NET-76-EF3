@@ -21,6 +21,12 @@ namespace Assignment._18.Configurations
                    .IsRequired(false);
             builder.Property(i => i.JoinedDate)
                    .HasDefaultValueSql("GETDATE()");
+            builder.HasData(new Instructor[]
+            {
+                new Instructor { Id=1, FullName="Ahmad Gamal", EmailAddress= "Ahmad77@gmail.com"},
+                new Instructor { Id=2, FullName="Salma Mostafa", EmailAddress= "Salma66@gmail.com"},
+                new Instructor { Id=3, FullName="Omar Waleed", EmailAddress= "Omar98@gmail.com"},
+            });
         }
     }
 }

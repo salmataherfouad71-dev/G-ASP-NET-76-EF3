@@ -21,6 +21,8 @@ namespace Assignment._18.Configurations
             builder.Property(e => e.FinalGrade)
                    .HasColumnType("decimal(10,2)")
                    .IsRequired(false);
+            builder.Property(e => e.EnrollmentDate)
+                   .HasDefaultValueSql("GETDATE()") ;
         }
     }
 }

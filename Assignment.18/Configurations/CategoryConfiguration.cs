@@ -23,6 +23,16 @@ namespace Assignment._18.Configurations
                    .OnDelete(DeleteBehavior.NoAction);
             builder.Property(c => c.Name)
                    .HasColumnType("varchar(100)");
+            builder.HasData(new Category[]
+                {
+                    new Category { Id = 1, Name = "Programming"},
+                    new Category { Id = 2, Name = "Back-End" , ParentId = 1},
+                    new Category { Id = 3, Name = "Front-End" , ParentId = 1},
+                    new Category { Id = 4, Name = "ASP.NET" , ParentId = 2},
+                    new Category { Id = 5, Name = "Node.js" , ParentId = 2},
+                    new Category { Id = 6, Name = "React" , ParentId = 3},
+                    new Category { Id = 7, Name = "Angular" , ParentId = 3},
+                });
         }
     }
 }
