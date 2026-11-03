@@ -13,5 +13,6 @@ namespace Assignment._18.Models
         public string FullName { set; get; }
         public string EmailAddress { set; get; }
         public DateTime DateOfBirth { set; get; }
+        public List<Enrollment> Enrollment { set; get; }
     }
 }

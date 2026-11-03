@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Assignment._18.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Assignment._18.Configurations
+{
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
+    {
+        public void Configure(EntityTypeBuilder<Category> builder)
+        {
+            builder.Property(c => c.Description)
+                   .IsRequired(false)
+                   .HasColumnType("varchar(200)");
+            builder.Property(c => c.ParentId).IsRequired(false);
+            builder.HasOne(c => c.Parent)
+                   .WithMany(c => c.SubCategories)
+                   .HasForeignKey(c => c.ParentId)
+                   .OnDelete(DeleteBehavior.NoAction);
+            builder.Property(c => c.Name)
+                   .HasColumnType("varchar(100)");
+        }
+    }
+}

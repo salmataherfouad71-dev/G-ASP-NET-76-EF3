@@ -14,5 +14,20 @@ namespace Assignment._18.Models
         public decimal Price { set; get; }
         public CourseLevel Level { set; get; }
         public bool Flag { set; get; }
+        public DateTime? publishedDate;
+        public DateTime? PublishedDate 
+        {
+            set
+            {
+                if(Flag==true)
+                    publishedDate = value;
+            }
+            get { return publishedDate; }
+        }
+        public int InstructorId { set; get; }
+        public Instructor Instructor { set; get; }
+        public int CategoryId { set; get; }
+        public Category HasCategory { set; get; }
+        public List<Enrollment> Enrollment { set; get; }
     }
 }
