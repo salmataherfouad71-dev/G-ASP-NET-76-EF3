@@ -13,7 +13,7 @@ namespace Assignment._18
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.; Database=EventHub; Trusted_Connection=True; TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=.; Database=Online-Learning-Platform; Trusted_Connection=True; TrustServerCertificate=True");
         }
         public DbSet<Category> Categories { set; get; }
         public DbSet<Course> Courses{ set; get; }

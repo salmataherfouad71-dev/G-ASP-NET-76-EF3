@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Assignment._18.Models;
+using Assignment._18.Services;
 
 namespace Assignment._18
 {
@@ -8,17 +9,19 @@ namespace Assignment._18
         static void Main(string[] args)
         {
             using AppDbContext context = new AppDbContext();
+            #region Seeding
             context.Database.Migrate();
             if (!context.Students.Any())
             {
-                context.AddRange(new Student[] 
-                { 
-                    new Student {Id=1,FullName="Noor Jaber",EmailAddress="Noor12@gmail.com",DateOfBirth=new DateTime(2000, 4, 16) },
-                    new Student {Id=2,FullName="Amira Zahran",EmailAddress="AmiraZ76@gmail.com",DateOfBirth=new DateTime(1999,6,3) },
-                    new Student {Id=3,FullName="Khalid Mansour",EmailAddress="Khalid09@gmail.com",DateOfBirth=new DateTime(2002,1,22) },
-                    new Student {Id=4,FullName="Yusuf Al-Masri",EmailAddress="Yusuf65@gmail.com",DateOfBirth=new DateTime(1998,12,12) },
-                    new Student {Id=5,FullName="Aisha Tawfiq",EmailAddress="Aisha44@gmail.com",DateOfBirth=new DateTime(2005,11,6) },
+                context.AddRange(new Student[]
+                {
+                    new Student {FullName="Noor Jaber",EmailAddress="Noor12@gmail.com",DateOfBirth=new DateTime(2000, 4, 16) },
+                    new Student {FullName="Amira Zahran",EmailAddress="AmiraZ76@gmail.com",DateOfBirth=new DateTime(1999,6,3) },
+                    new Student {FullName="Khalid Mansour",EmailAddress="Khalid09@gmail.com",DateOfBirth=new DateTime(2002,1,22) },
+                    new Student {FullName="Yusuf Al-Masri",EmailAddress="Yusuf65@gmail.com",DateOfBirth=new DateTime(1998,12,12) },
+                    new Student {FullName="Aisha Tawfiq",EmailAddress="Aisha44@gmail.com",DateOfBirth=new DateTime(2005,11,6) },
                 });
+                context.SaveChanges();
             }
             if (!context.Enrollments.Any())
             {
@@ -33,7 +36,18 @@ namespace Assignment._18
                     new Enrollment { StudentId=4,CourseId=5,ProgressPrecentage=30,Status=EnrollmentStatus.Dropped},
                     new Enrollment { StudentId=5,CourseId=6,ProgressPrecentage=100,Status=EnrollmentStatus.Completed,FinalGrade=65},
                 });
+                context.SaveChanges();
             }
+            #endregion
+            #region Create
+            //CreateOperatinos.AddInstructor(context, "Malek Ahmad", "Malek99@gmail.com");
+            //CreateOperatinos.AddCourse(context, "Mobile Application", 6000, CourseLevel.Intermediate, false, 1, 1);
+            //CreateOperatinos.AddSeveralStudents(context, new List<Student>{
+            //                                                                new Student { FullName = "Amr Jaber", EmailAddress = "Amr02@gmail.com", DateOfBirth = new DateTime(2003, 8, 16) },
+            //                                                                new Student { FullName = "Sleem Mohammed", EmailAddress = "Sleem13@gmail.com", DateOfBirth = new DateTime(2000, 4, 9) }
+            //                                                            });
+            //CreateOperatinos.EnrollStudent(context, 5, 1, 10, EnrollmentStatus.Active);
+            #endregion
         }
     }
 }

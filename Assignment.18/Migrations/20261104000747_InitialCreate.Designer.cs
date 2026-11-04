@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment._18.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261103213125_InitialCreate")]
+    [Migration("20261104000747_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -102,7 +102,9 @@ namespace Assignment._18.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EnrollmentDate")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<decimal?>("FinalGrade")
                         .HasColumnType("decimal(10,2)");

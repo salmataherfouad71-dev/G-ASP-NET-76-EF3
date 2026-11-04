@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -13,15 +12,6 @@ namespace Assignment._18.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "EnrollmentDate",
-                table: "Enrollments",
-                type: "datetime2",
-                nullable: false,
-                defaultValueSql: "GETDATE()",
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2");
-
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "Description", "Name", "ParentId" },
@@ -146,15 +136,6 @@ namespace Assignment._18.Migrations
                 table: "Categories",
                 keyColumn: "Id",
                 keyValue: 1);
-
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "EnrollmentDate",
-                table: "Enrollments",
-                type: "datetime2",
-                nullable: false,
-                oldClrType: typeof(DateTime),
-                oldType: "datetime2",
-                oldDefaultValueSql: "GETDATE()");
         }
     }
 }

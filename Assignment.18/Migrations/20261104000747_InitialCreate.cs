@@ -100,7 +100,7 @@ namespace Assignment._18.Migrations
                 {
                     StudentId = table.Column<int>(type: "int", nullable: false),
                     CourseId = table.Column<int>(type: "int", nullable: false),
-                    EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
                     ProgressPrecentage = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
                     Status = table.Column<string>(type: "varchar(20)", nullable: false),
                     FinalGrade = table.Column<decimal>(type: "decimal(10,2)", nullable: true)
