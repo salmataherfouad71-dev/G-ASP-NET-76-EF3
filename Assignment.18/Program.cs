@@ -54,6 +54,11 @@ namespace Assignment._18
             //ReadOperations.SubCategories(context,2);
             //ReadOperations.CourseRoster(context, 1);
             #endregion
+            #region Update
+            //UpdateOperations.ChangePrice(context, 1, 7500);
+            //UpdateOperations.UpdateProgress(context,1,1);
+            //UpdateOperations.PublishCourse(context, 1);
+            #endregion
         }
     }
 }
