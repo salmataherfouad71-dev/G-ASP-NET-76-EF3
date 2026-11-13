@@ -64,6 +64,10 @@ namespace Assignment._18
             //DeleteOperations.DeleteCategory(context,1);
             //DeleteOperations.DeleteCourse(context,1);
             #endregion
+            #region  Bulk operations
+            //BulkOperations.UpdatePrice(context,CourseLevel.Intermediate);
+            //BulkOperations.DeleteEnrollment(context);
+            #endregion
         }
     }
 }
