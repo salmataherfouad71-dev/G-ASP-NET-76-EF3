@@ -59,6 +59,11 @@ namespace Assignment._18
             //UpdateOperations.UpdateProgress(context,1,1);
             //UpdateOperations.PublishCourse(context, 1);
             #endregion
+            #region Delete
+            //DeleteOperations.Unenroll(context, 1, 1);
+            //DeleteOperations.DeleteCategory(context,1);
+            //DeleteOperations.DeleteCourse(context,1);
+            #endregion
         }
     }
 }
