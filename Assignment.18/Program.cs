@@ -48,6 +48,12 @@ namespace Assignment._18
             //                                                            });
             //CreateOperatinos.EnrollStudent(context, 5, 1, 10, EnrollmentStatus.Active);
             #endregion
+            #region Read
+            //ReadOperations.FindCourse(context,6,"ASP-NET-G01");
+            //ReadOperations.FilterCourses(context, 6000, 7000);
+            //ReadOperations.SubCategories(context,2);
+            //ReadOperations.CourseRoster(context, 1);
+            #endregion
         }
     }
 }
